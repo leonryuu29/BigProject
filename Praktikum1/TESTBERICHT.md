@@ -90,6 +90,8 @@ Die Tests laufen gegen einen **echten Redis-Server**, aber in **Datenbank 15**, 
 | Präfixsuche hätte Namen übersehen, bei denen nach dem Präfix ein Zeichen jenseits von U+00FF folgt | Obergrenze ursprünglich als Zeichen `'\xff'` (UTF-8: `C3 BF`) | Obergrenze als **Byte** `0xFF` angehängt; kommt in gültigem UTF-8 nie vor (abgesichert durch T13) |
 | `deploy.bat` brach unter Windows sofort ab („`﻿#` is not recognized“) | PowerShell-Skript hatte eine doppelte UTF-8-BOM | BOM normalisiert |
 | Deployment stoppte beim ersten `redis-cli ping` | Unter `ErrorActionPreference = Stop` wertet PowerShell 5.1 stderr-Ausgaben nativer Programme als Fehler; vor dem Serverstart schlägt `ping` aber erwartungsgemäß fehl | Fehlerbehandlung für native Befehle gelockert, Prüfung über `$LASTEXITCODE` |
+| **Verbindung zu Redis 5 schlägt fehl:** `unknown command 'HELLO'` (gefunden durch CI-Matrix Redis 5) | redis-py ≥ 8 nutzt standardmäßig das Protokoll RESP3 und sendet beim Verbinden `HELLO 3`; Redis < 6 kennt den Befehl nicht. Betraf das portable Redis 5.0.14 unter Windows (Import lieferte dort keine Ausgabe) | `connect()` erzwingt `protocol=2` (RESP2), kompatibel mit allen Redis-Versionen |
+| CI meldete fehlgeschlagene Tests als Erfolg | `unittest … \| tee` ohne `pipefail` übernimmt den Exit-Code von `tee` | `shell: bash` im Workflow (aktiviert `-o pipefail`) |
 | Datensatzzahl weicht von der Aufgabenstellung ab (192.609 statt 209.393) | Gelieferte Datei stammt aus einer anderen Version des Yelp-Datensatzes | kein Codefehler; in der Abgabe dokumentiert |
 
 ## 5. Grenzen der Tests

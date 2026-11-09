@@ -214,7 +214,7 @@ python autocomplete.py
 | Redis | ✅ tporadowski/redis 5.0.14.1 便携版，解压在 `Praktikum1\redis\`，已启动在 6379 端口 |
 | redis-py | ✅ 8.1.0（pip 安装成功） |
 | 数据 | ✅ `data\business.json`（138 MB）、`data\businessS.json` |
-| 全量导入 + 答案 | ⏳ `import_and_answers.bat` 已启动，但随后电脑断开连接，尚未确认；看 `results\antworten_local.txt` 是否存在即可 |
+| 全量导入 + 答案 | ⚠️ 第一次运行失败：redis-py 8.x 默认用 RESP3 协议（`HELLO 3`），Redis 5 不支持 → 已在 `yelp_redis.py` 中改为 `protocol=2` 修复。`git pull` 后重新双击 `import_and_answers.bat` |
 | 本地测试 | ⏳ `git pull` 后双击 `run_tests.bat` |
 
 日常使用（都在 Praktikum1 文件夹里双击）：

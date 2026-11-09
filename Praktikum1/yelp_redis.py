@@ -17,8 +17,14 @@ AUTOCOMPLETE_KEY = "autocomplete:names"
 
 
 def connect(host="localhost", port=6379, db=0):
-    """Verbindung zum Redis-Server im Docker-Container (Port 6379 wird gemappt)."""
-    r = redis.Redis(host=host, port=port, db=db, decode_responses=True)
+    """Verbindung zum Redis-Server im Docker-Container (Port 6379 wird gemappt).
+
+    protocol=2 (RESP2) erzwingen: redis-py >= 8 verwendet standardmäßig RESP3
+    und schickt beim Verbinden 'HELLO 3'. Redis-Server < 6 (z. B. das portable
+    Redis 5.0.14 für Windows) kennen diesen Befehl nicht -> ResponseError.
+    RESP2 funktioniert mit allen Redis-Versionen.
+    """
+    r = redis.Redis(host=host, port=port, db=db, decode_responses=True, protocol=2)
     r.ping()  # wirft eine Exception, falls der Container nicht läuft
     return r
 
