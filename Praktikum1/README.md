@@ -22,15 +22,34 @@ HSBI · Prof. Dr. Stefan Berlik · WS 2026/27 · **截止 15.11.2026（ILIAS 提
 
 ## 2. 工作流
 
+```mermaid
+flowchart TD
+    A[阅读 PDF，拆解任务] --> B[环境：Redis + Python + redis-py]
+    B --> C[Aufgabe 1：redis-cli 四种数据类型练习]
+    B --> D[下载 business.json / businessS.json]
+    D --> E[结构分析 analyze_structure.py]
+    E --> F[2a/2b 导入 load_data.py<br/>先小样本，后全量]
+    F --> G[2c 自动补全<br/>Sorted Set + ZRANGEBYLEX]
+    G --> H[2d 详情 SMEMBERS + MGET]
+    H --> I[answers.py 生成答案]
+    I --> J[自动化测试 23 个 + TESTBERICHT.md]
+    J --> K[Abgabe.md 德语提交稿]
+    K --> L[GitHub：分支 praktikum1 + PR + CI]
+    L --> M[填写姓名学号 → ILIAS 提交]
 ```
-① 环境：Docker Desktop → Redis 容器 → pip install redis → 下载数据
-② Aufgabe 1：redis-cli 练习               → aufgabe1_redis_cli.md
-③ 结构分析：analyze_structure.py           → 先用 businessS.json
-④ 导入（2a/2b + 补全索引）：load_data.py   → 先小样本，后全量
-⑤ 补全 + 详情（2c/2d）：autocomplete.py    → 交互式 input() 循环
-⑥ 自动回答题目问题：answers.py             → 填入第 6 节答案表
-⑦ 整理答案 → ILIAS 提交
-```
+
+| 阶段 | 输入 | 产出 | 工具/命令 |
+|---|---|---|---|
+| ① 任务拆解 | `Big_Data_Praktikum_1.pdf` | 本 README 第 1、5 节 | — |
+| ② 环境 | — | Redis 服务 + redis-py | Docker 或 `deploy.bat`（便携版 Redis） |
+| ③ Aufgabe 1 | — | `aufgabe1_redis_cli.md` | `redis-cli.bat` |
+| ④ 结构分析 | `businessS.json` | `results/struktur.txt` | `analyze_structure.py` |
+| ⑤ 导入 2a/2b | `business.json` | Redis 中 336,947 个键 | `load_data.py --flush` |
+| ⑥ 补全/详情 2c/2d | 前缀输入 | 名字列表、地址+星级 | `autocomplete.py` / `autocomplete.bat` |
+| ⑦ 答案 | Redis 数据 | `results/antworten.txt` | `answers.py` |
+| ⑧ 测试 | 固定样本、合成文件、真实数据 | `TESTBERICHT.md`、`results/test_output.txt` | `run_tests.bat` / `python -m unittest discover -s tests -v` |
+| ⑨ CI | 每次 push / PR | GitHub Actions 结果徽章 | `.github/workflows/praktikum1-tests.yml` |
+| ⑩ 提交 | `Abgabe.md` | ILIAS 提交 | 手动 |
 
 ## 3. 进度
 
@@ -47,6 +66,10 @@ HSBI · Prof. Dr. Stefan Berlik · WS 2026/27 · **截止 15.11.2026（ILIAS 提
 | 提交稿（德语）`Abgabe.md` | ✅ 完成 | 所有数字和 "The Still" 评价已填入；只差姓名/学号 |
 | 一键运行脚本 `scripts/run_all.ps1` | ✅ 完成 | 结果保存到 `results/antworten.txt` |
 | 自动化测试 + 测试报告 | ✅ 完成 | 23/23 通过，见 `TESTBERICHT.md` |
+| 本地部署（Windows，便携版 Redis 5.0.14.1 + redis-py 8.1.0） | ✅ 完成 | 见第 8 节 |
+| 上传 GitHub（分支 `praktikum1`，PR #1） | ✅ 完成 | https://github.com/leonryuu29/BigProject/pull/1 |
+| GitHub Actions 自动测试（Python 3.10/3.13 × Redis 5/7） | ✅ 已配置 | `.github/workflows/praktikum1-tests.yml` |
+| 合并 PR #1 | ⏳ 待你完成 | 在 GitHub 上点 Merge |
 | 填写姓名学号，提交 ILIAS | ⏳ 待你完成 | 截止 15.11.2026 |
 
 ## 4. 本地运行步骤（Windows / PowerShell）
@@ -178,6 +201,9 @@ python autocomplete.py
 | `tests/test_yelp_redis.py` | 23 个自动化测试（固定样本、合成文件、真实数据） |
 | `TESTBERICHT.md` | 测试报告（德语），23/23 通过 |
 | `run_tests.bat` | Windows 下一键运行测试 |
+| `../.github/workflows/praktikum1-tests.yml` | GitHub Actions：每次 push/PR 自动跑测试 |
+| `deploy.bat` / `import_and_answers.bat` / `redis-cli.bat` / `autocomplete.bat` | Windows 双击脚本（便携版 Redis） |
+| `scripts/run_portable.ps1` | 无 Docker 的部署脚本 |
 
 ## 8. 本地部署记录（2026-11-09，Windows 11）
 
@@ -188,7 +214,8 @@ python autocomplete.py
 | Redis | ✅ tporadowski/redis 5.0.14.1 便携版，解压在 `Praktikum1\redis\`，已启动在 6379 端口 |
 | redis-py | ✅ 8.1.0（pip 安装成功） |
 | 数据 | ✅ `data\business.json`（138 MB）、`data\businessS.json` |
-| 全量导入 + 答案 | ⏳ `import_and_answers.bat` 已启动，结果写入 `results\import_local.txt`、`results\antworten_local.txt` |
+| 全量导入 + 答案 | ⏳ `import_and_answers.bat` 已启动，但随后电脑断开连接，尚未确认；看 `results\antworten_local.txt` 是否存在即可 |
+| 本地测试 | ⏳ `git pull` 后双击 `run_tests.bat` |
 
 日常使用（都在 Praktikum1 文件夹里双击）：
 - `deploy.bat`：完整部署（下载 Redis → 启动 → 装 redis-py → 导入 → 答案）

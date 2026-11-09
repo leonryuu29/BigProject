@@ -98,7 +98,18 @@ Die Tests laufen gegen einen **echten Redis-Server**, aber in **Datenbank 15**, 
 - `autocomplete.py` (die `input()`-Schleife) wird nicht automatisch getestet; ihre Logik steckt in `autocomplete()` und `details()`, die vollständig abgedeckt sind. Ein manueller Durchlauf auf echten Daten liegt in `results/autocomplete_demo.txt`.
 - Aufgabe 1 (redis-cli) ist eine manuelle Übung; Befehle und Ausgaben stehen in `aufgabe1_redis_cli.md`.
 
-## 6. Tests ausführen
+## 6. Continuous Integration
+
+Die Workflow-Datei `.github/workflows/praktikum1-tests.yml` führt bei jedem Push oder Pull Request auf `Praktikum1/**` die Testsuite automatisch aus:
+
+- Matrix: Python 3.10 / 3.13 × Redis 5 / 7 (offizielle Docker-Images als Service-Container), also 4 Jobs
+- Schritte: redis-py installieren → Syntaxprüfung → `unittest` → Smoke-Test (Strukturanalyse, Import, Autocomplete auf synthetischen Daten)
+- Die Testausgabe jedes Jobs wird als Artefakt gespeichert
+- `RealDataTests` werden dort übersprungen (`business.json` ist nicht eingecheckt); erwartet: 18 bestanden, 5 übersprungen
+
+Damit wird auch die Lücke aus Abschnitt 5 geschlossen: In CI laufen die Tests mit dem echten redis-py und zusätzlich gegen Redis 5, also dieselbe Hauptversion wie das portable Redis unter Windows.
+
+## 7. Tests ausführen
 
 ```bat
 :: Windows (im Ordner Praktikum1, Redis wird bei Bedarf gestartet)
