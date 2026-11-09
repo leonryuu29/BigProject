@@ -1,0 +1,5 @@
+data/
+redis/
+redis.zip
+__pycache__/
+*.pyc

@@ -1,0 +1,50 @@
+Keys in Redis: 336947, Namen im Index: 144337
+
+======================================================================
+2c) Präfix "Star" (erste 20 Treffer)
+======================================================================
+181 Namen beginnen mit 'star':
+   star 1 personnel
+   star 5 plumbing
+   star academy preschool
+   star anise
+   star appliance and hvac
+   star auto care
+   star auto glass
+   star automotive
+   star bar
+   star beauty plus
+   star bright pharmacy
+   star brite dental
+   star burger
+   star chem-dry
+   star cleaner
+   star cleaners
+   star cleaners & laundry
+   star club
+   star costume & theatrical supply
+   star cpr arizona
+
+======================================================================
+2c) Wie viele Starbucks-Filialen?
+======================================================================
+Exakter Name 'starbucks': 1066 Einträge
+    1066  starbucks
+       6  starbucks coffee
+       1  starbucks reserve
+Alle Namen, die mit 'starbucks' beginnen: 1073 Einträge
+
+======================================================================
+2c) "The Still" und Teilsuche "The Sti"
+======================================================================
+Exakter Name 'the still': 2 Eintrag/Einträge
+Teilsuche 'The Sti' liefert 3 Namen:
+     2  the still
+     1  the stirling club spa
+     1  the stirling room
+
+======================================================================
+2d) Details zu "The Still"
+======================================================================
+    1. The Still | 270 14 Avenue SE, T2G 0K3, Calgary, AB | 2.5 Sterne (8 Reviews, geöffnet) | id=O9qdEZkdcIk5dxC8N00h4A
+    2. The Still | 3400 S Las Vegas Blvd, 89109, Las Vegas, NV | 3.5 Sterne (257 Reviews, geöffnet) | id=zQmHSe6IOiSNF84m9BVZ8A

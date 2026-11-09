@@ -1,0 +1,35 @@
+Autovervollständigung (leere Eingabe = Ende)
+
+Suche>   18 Namen beginnen mit 'Starl':
+    1. starlett nails & spa  (1 Eintrag/Einträge)
+    2. starlight barbecue company  (1 Eintrag/Einträge)
+    3. starlight collision repair  (1 Eintrag/Einträge)
+    4. starlight community theater  (1 Eintrag/Einträge)
+    5. starlight cuisine  (1 Eintrag/Einträge)
+    6. starlight electronics  (1 Eintrag/Einträge)
+    7. starlight hair studio  (1 Eintrag/Einträge)
+    8. starlight nails & spa  (2 Eintrag/Einträge)
+    9. starlight roller rink  (1 Eintrag/Einträge)
+   10. starlight stadium 14  (1 Eintrag/Einträge)
+   11. starlight tattoo  (2 Eintrag/Einträge)
+   12. starliner diner  (1 Eintrag/Einträge)
+   13. starling automotive  (1 Eintrag/Einträge)
+   14. starlite bbq  (1 Eintrag/Einträge)
+   15. starlite family restaurant  (1 Eintrag/Einträge)
+   16. starlite lounge  (2 Eintrag/Einträge)
+   17. starlite motel  (1 Eintrag/Einträge)
+   18. starlite restaurant & bar  (1 Eintrag/Einträge)
+Nummer für Details (Enter = neue Suche)> 
+'starlight barbecue company': 1 Betrieb(e)
+    1. Starlight Barbecue Company | 8833 N Central Ave, 85020, Phoenix, AZ | 3.0 Sterne (6 Reviews, geöffnet) | id=EcPBADX4buX2Jcv6wtVxAg
+
+Suche>   3 Namen beginnen mit 'The Sti':
+    1. the still  (2 Eintrag/Einträge)
+    2. the stirling club spa  (1 Eintrag/Einträge)
+    3. the stirling room  (1 Eintrag/Einträge)
+Nummer für Details (Enter = neue Suche)> 
+'the still': 2 Betrieb(e)
+    1. The Still | 270 14 Avenue SE, T2G 0K3, Calgary, AB | 2.5 Sterne (8 Reviews, geöffnet) | id=O9qdEZkdcIk5dxC8N00h4A
+    2. The Still | 3400 S Las Vegas Blvd, 89109, Las Vegas, NV | 3.5 Sterne (257 Reviews, geöffnet) | id=zQmHSe6IOiSNF84m9BVZ8A
+
+Suche> 

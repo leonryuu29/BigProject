@@ -1,0 +1,35 @@
+test_01_import_count (test_yelp_redis.FixtureTests.test_01_import_count)
+Alle Zeilen werden importiert, Leerzeilen ignoriert. ... ok
+test_02_business_key_holds_original_json (test_yelp_redis.FixtureTests.test_02_business_key_holds_original_json)
+2a: business:<id> enthält den unveränderten JSON-String. ... ok
+test_03_key_count (test_yelp_redis.FixtureTests.test_03_key_count)
+Keys = Betriebe + verschiedene Namen + 1 Autocomplete-Index. ... ok
+test_04_name_set_lowercase_and_merged (test_yelp_redis.FixtureTests.test_04_name_set_lowercase_and_merged)
+2b: Name lowercase als Key; Groß-/Kleinschreibung wird zusammengeführt. ... ok
+test_05_reimport_is_idempotent (test_yelp_redis.FixtureTests.test_05_reimport_is_idempotent)
+Erneuter Import ohne --flush erzeugt keine Duplikate (Set-Semantik). ... ok
+test_06_prefix_star (test_yelp_redis.FixtureTests.test_06_prefix_star) ... ok
+test_07_prefix_case_insensitive (test_yelp_redis.FixtureTests.test_07_prefix_case_insensitive) ... ok
+test_08_prefix_the_sti (test_yelp_redis.FixtureTests.test_08_prefix_the_sti) ... ok
+test_09_exact_name_is_included (test_yelp_redis.FixtureTests.test_09_exact_name_is_included) ... ok
+test_10_no_match (test_yelp_redis.FixtureTests.test_10_no_match) ... ok
+test_11_empty_prefix (test_yelp_redis.FixtureTests.test_11_empty_prefix) ... ok
+test_12_limit (test_yelp_redis.FixtureTests.test_12_limit) ... ok
+test_13_unicode_prefixes (test_yelp_redis.FixtureTests.test_13_unicode_prefixes)
+Umlaute, CJK und vietnamesische Zeichen werden korrekt gefunden. ... ok
+test_14_no_false_positive_after_prefix (test_yelp_redis.FixtureTests.test_14_no_false_positive_after_prefix)
+'starbucks' darf nicht 'star pizza' liefern, 'zzz' nur sich selbst. ... ok
+test_15_details_the_still (test_yelp_redis.FixtureTests.test_15_details_the_still) ... ok
+test_16_details_unknown_name (test_yelp_redis.FixtureTests.test_16_details_unknown_name) ... ok
+test_17_format_details (test_yelp_redis.FixtureTests.test_17_format_details) ... ok
+test_distinct_names (test_yelp_redis.RealDataTests.test_distinct_names) ... ok
+test_record_count (test_yelp_redis.RealDataTests.test_record_count) ... ok
+test_star_prefix (test_yelp_redis.RealDataTests.test_star_prefix) ... ok
+test_starbucks (test_yelp_redis.RealDataTests.test_starbucks) ... ok
+test_the_still (test_yelp_redis.RealDataTests.test_the_still) ... ok
+test_synthetic_file (test_yelp_redis.SyntheticFileTests.test_synthetic_file) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 25.767s
+
+OK

@@ -1,0 +1,64 @@
+Datei: /mnt/user-data/uploads/Downloads/businessS.json
+Format: JSON Lines (ein JSON-Objekt pro Zeile, KEIN JSON-Array)
+Anzahl Datensätze: 200
+
+Felder und Typen:
+  business_id    {'str': 200}
+  name           {'str': 200}
+  address        {'str': 200}
+  city           {'str': 200}
+  state          {'str': 200}
+  postal_code    {'str': 200}
+  latitude       {'float': 200}
+  longitude      {'float': 200}
+  stars          {'float': 200}
+  review_count   {'int': 200}
+  is_open        {'int': 200}
+  attributes     {'dict': 174, 'null': 26}
+  categories     {'str': 200}
+  hours          {'null': 49, 'dict': 151}
+
+Häufigste Attribut-Schlüssel (verschachteltes Objekt 'attributes'):
+  RestaurantsPriceRange2       120
+  BusinessAcceptsCreditCards   115
+  BusinessParking              112
+  BikeParking                  96
+  GoodForKids                  73
+  RestaurantsTakeOut           67
+  OutdoorSeating               58
+  RestaurantsGoodForGroups     56
+  ByAppointmentOnly            56
+  WiFi                         55
+
+Verschiedene Namen (lowercase): 199
+Häufigste Namen:
+      2  bank of america
+      1  arizona biltmore golf club
+      1  emerald chinese restaurant
+      1  musashi japanese restaurant
+      1  farmers insurance - paul lorenz
+      1  queen city plumbing
+      1  the ups store
+      1  edgeworxx studio
+      1  supercuts
+      1  vita bella fine day spa
+
+Erster Datensatz:
+{
+  "business_id": "1SWheh84yJXfytovILXOAQ",
+  "name": "Arizona Biltmore Golf Club",
+  "address": "2818 E Camino Acequia Drive",
+  "city": "Phoenix",
+  "state": "AZ",
+  "postal_code": "85016",
+  "latitude": 33.5221425,
+  "longitude": -112.0184807,
+  "stars": 3.0,
+  "review_count": 5,
+  "is_open": 0,
+  "attributes": {
+    "GoodForKids": "False"
+  },
+  "categories": "Golf, Active Life",
+  "hours": null
+}
